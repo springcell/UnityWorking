@@ -1,7 +1,4 @@
-# UnityWorking
-Unity rendering development and related tasks
+<h4>Decal_Foot</h4>
+parallax map方式来制作的贴花效果，支持普通贴花及parallax模式<br>
+ <img src="https://github.com/springcell/UnityWorking/assets/62659822/ae7ce02a-49f8-4288-b167-114fa78252e7.png" width = "400" height = "300" alt="图片名称" align=center />
 
-TerrainToObjConverter:
-地形to Obj转换工具，用来导出地形文件到3d工具中优化。
-材质基于URP simperLit修改，并支持加入顶点动画模拟植物的动态效果
- <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/62659822/296648449-0fce315e-e04d-4118-90ec-530e8e2bb07f.png" width = "400" height = "300" alt="图片名称" align=center />
