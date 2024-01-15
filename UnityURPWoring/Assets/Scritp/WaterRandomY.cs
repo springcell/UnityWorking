@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//[ExecuteInEditMode]
 public class WaterRandomY : MonoBehaviour
 {    
     public float floatSpeed = 1f; // 浮动速度
