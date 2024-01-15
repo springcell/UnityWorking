@@ -10,3 +10,7 @@ Email：16519579@qq.com
 <h4>Decal_Foot</h4>
 parallax map方式来制作的贴花效果，支持普通贴花及parallax模式<br>
  <img src="https://github.com/springcell/UnityWorking/assets/62659822/ae7ce02a-49f8-4288-b167-114fa78252e7.png" width = "30%" alt="图片名称" align=center />
+
+<h4>UIOutlineShadow</h4>
+URP　UI勾边及阴影<br>
+ <img src="https://github.com/springcell/UnityWorking/assets/62659822/5cfd27a6-7fd0-4eff-9536-943bbb83320a.png" width = "30%" alt="图片名称" align=center />
