@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TerrainToObjConverter
+  m_Shader: {fileID: 4800000, guid: 0825894168834574b85f662f628cba3b, type: 3}
+  m_ValidKeywords:
+  - _NORMALMAP
+  - _SPECULAR_COLOR
+  - _SPLATMAPON
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    RenderType: Opaque
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 8d90d547a7b7ca240a755925ca2f6869, type: 3}
+        m_Scale: {x: 10, y: 10}
+        m_Offset: {x: 0, y: 0}
+    - _BaseMap1:
+        m_Texture: {fileID: 2800000, guid: 4d208fb1e78fb6146bd70d7e588091a5, type: 3}
+        m_Scale: {x: 10, y: 10}
+        m_Offset: {x: 0, y: 0}
+    - _BaseMap2:
+        m_Texture: {fileID: 2800000, guid: 8d90d547a7b7ca240a755925ca2f6869, type: 3}
+        m_Scale: {x: 20, y: 20}
+        m_Offset: {x: 0, y: 0}
+    - _BaseMap3:
+        m_Texture: {fileID: 2800000, guid: 6b0f32a7a9e3fcc4698658310b96ffde, type: 3}
+        m_Scale: {x: 10, y: 10}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: 0452e34fb6507dc46978fe3807cd225c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap1:
+        m_Texture: {fileID: 2800000, guid: e3d5d4afb33ec8e42aa63376bdaff110, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap2:
+        m_Texture: {fileID: 2800000, guid: 8ff27d94f54779e4daa7c90d69ab7c0e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap3:
+        m_Texture: {fileID: 2800000, guid: 8db44b9549194c8428450abc65fac514, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8d90d547a7b7ca240a755925ca2f6869, type: 3}
+        m_Scale: {x: 10, y: 10}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Splatmap:
+        m_Texture: {fileID: -409773676791979936, guid: 7b322ac43d6850742aecdefa48199105, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - NOISEBUG: 0
+    - _AlphaClip: 0
+    - _Blend: 0
+    - _BottomTintAmount: 0
+    - _Bump1Scale: 0.101
+    - _Bump2Scale: 0.2
+    - _Bump3Scale: 0.165
+    - _Bump4Scale: 0.216
+    - _BumpScale: 1
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DstBlend: 0
+    - _GlossinessSource: 0
+    - _QueueOffset: 0
+    - _RandomColor: 0
+    - _RandomColorAmount: 1
+    - _ReceiveShadows: 1
+    - _Shininess: 0
+    - _Smoothness: 0.391
+    - _SmoothnessSource: 0
+    - _SpecSource: 0
+    - _SpecularHighlights: 0
+    - _SplatmapOn: 1
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _Surfacetype: 1
+    - _TopTintAmount: 3.28
+    - _TreeSwaySpeed: 2.4
+    - _UIPosAnm: 0
+    - _UIPoslerp: 1
+    - _UIPoslerpTime: 0
+    - _WindLeavesScale: 2
+    - _WindLeavesStrength: 0
+    - _WindOn: 0
+    - _WindSpeed: 0.2
+    - _WindStrength: 0.2
+    - _WindSwayScale: 0.02
+    - _ZWrite: 1
+    - _vertexColorMaskColor: 0
+    m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BottomTint: {r: 0.12262548, g: 0.53773576, b: 0.08877709, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RandomColorTint: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecColor: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0.391}
+    - _TopTint: {r: 1, g: 0.9183047, b: 0.58962256, a: 0}
+  m_BuildTextureStacks: []
