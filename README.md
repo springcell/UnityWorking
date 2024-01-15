@@ -6,3 +6,7 @@ Email：16519579@qq.com
 
 <h4>WaterRippling：</h4>移动端水方案,支持互动效果。<br>
  <img src="https://github.com/springcell/UnityWorking/assets/62659822/aff398c3-a467-4a8d-ab86-badd0ca95ebc.png" width = "30%" alt="图片名称" align=center />
+
+<h4>Decal_Foot</h4>
+parallax map方式来制作的贴花效果，支持普通贴花及parallax模式<br>
+ <img src="https://github.com/springcell/UnityWorking/assets/62659822/ae7ce02a-49f8-4288-b167-114fa78252e7.png" width = "400" height = "300" alt="图片名称" align=center />
