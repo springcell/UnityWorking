@@ -13,7 +13,7 @@ public class WaterRTToShader : MonoBehaviour
 
     private void InitializewaterCamera()
     {
-        // 创建一个新的 RenderTexture，设置格式为带有 alpha 通道的格式
+        // 创建一个新的 RenderTexture
         waterRT = new RenderTexture(Screen.width / Downsampling, Screen.height / Downsampling, 24);
 
         // 获取或创建一个用于渲染的相机

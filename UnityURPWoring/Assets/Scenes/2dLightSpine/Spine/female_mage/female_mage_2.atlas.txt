@@ -1,0 +1,335 @@
+
+female_mage_2.png
+size: 512, 256
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+female_mage_back_view/body
+  rotate: false
+  xy: 313, 97
+  size: 63, 67
+  orig: 63, 67
+  offset: 0, 0
+  index: -1
+female_mage_back_view/head
+  rotate: false
+  xy: 2, 126
+  size: 120, 125
+  orig: 120, 125
+  offset: 0, 0
+  index: -1
+female_mage_back_view/knot
+  rotate: true
+  xy: 378, 126
+  size: 57, 30
+  orig: 57, 30
+  offset: 0, 0
+  index: -1
+female_mage_back_view/left_arm
+  rotate: false
+  xy: 453, 93
+  size: 21, 24
+  orig: 21, 24
+  offset: 0, 0
+  index: -1
+female_mage_back_view/left_foot
+  rotate: false
+  xy: 329, 2
+  size: 17, 14
+  orig: 17, 14
+  offset: 0, 0
+  index: -1
+female_mage_back_view/left_forearm
+  rotate: false
+  xy: 418, 210
+  size: 28, 41
+  orig: 28, 41
+  offset: 0, 0
+  index: -1
+female_mage_back_view/left_leg
+  rotate: false
+  xy: 449, 155
+  size: 18, 30
+  orig: 18, 30
+  offset: 0, 0
+  index: -1
+female_mage_back_view/left_thigh
+  rotate: true
+  xy: 418, 187
+  size: 21, 30
+  orig: 21, 30
+  offset: 0, 0
+  index: -1
+female_mage_front_view/left_thigh
+  rotate: true
+  xy: 418, 187
+  size: 21, 30
+  orig: 21, 30
+  offset: 0, 0
+  index: -1
+female_mage_back_view/right_arm
+  rotate: false
+  xy: 450, 195
+  size: 21, 24
+  orig: 21, 24
+  offset: 0, 0
+  index: -1
+female_mage_back_view/right_foot
+  rotate: false
+  xy: 310, 2
+  size: 17, 14
+  orig: 17, 14
+  offset: 0, 0
+  index: -1
+female_mage_back_view/right_forearm
+  rotate: false
+  xy: 369, 32
+  size: 49, 63
+  orig: 49, 63
+  offset: 0, 0
+  index: -1
+female_mage_back_view/right_leg
+  rotate: false
+  xy: 448, 221
+  size: 18, 30
+  orig: 18, 30
+  offset: 0, 0
+  index: -1
+female_mage_back_view/right_thigh
+  rotate: false
+  xy: 425, 31
+  size: 21, 30
+  orig: 21, 30
+  offset: 0, 0
+  index: -1
+female_mage_front_view/right_thigh
+  rotate: false
+  xy: 425, 31
+  size: 21, 30
+  orig: 21, 30
+  offset: 0, 0
+  index: -1
+female_mage_front_view/back_hair
+  rotate: true
+  xy: 123, 13
+  size: 111, 89
+  orig: 111, 89
+  offset: 0, 0
+  index: -1
+female_mage_front_view/blink
+  rotate: false
+  xy: 234, 140
+  size: 55, 18
+  orig: 55, 18
+  offset: 0, 0
+  index: -1
+female_mage_front_view/body
+  rotate: false
+  xy: 306, 166
+  size: 68, 85
+  orig: 68, 85
+  offset: 0, 0
+  index: -1
+female_mage_front_view/head
+  rotate: true
+  xy: 124, 132
+  size: 119, 108
+  orig: 119, 108
+  offset: 0, 0
+  index: -1
+female_mage_front_view/knot
+  rotate: false
+  xy: 484, 149
+  size: 18, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+female_mage_front_view/left_arm
+  rotate: false
+  xy: 397, 3
+  size: 26, 27
+  orig: 28, 27
+  offset: 0, 0
+  index: -1
+female_mage_front_view/left_foot
+  rotate: true
+  xy: 488, 231
+  size: 20, 18
+  orig: 20, 18
+  offset: 0, 0
+  index: -1
+female_mage_front_view/left_forearm
+  rotate: false
+  xy: 376, 185
+  size: 40, 66
+  orig: 44, 66
+  offset: 0, 0
+  index: -1
+female_mage_front_view/left_leg
+  rotate: false
+  xy: 468, 224
+  size: 18, 27
+  orig: 18, 27
+  offset: 0, 0
+  index: -1
+female_mage_front_view/left_shoulder
+  rotate: true
+  xy: 440, 119
+  size: 25, 22
+  orig: 25, 23
+  offset: 0, 1
+  index: -1
+female_mage_front_view/right_arm
+  rotate: false
+  xy: 369, 3
+  size: 26, 27
+  orig: 28, 27
+  offset: 2, 0
+  index: -1
+female_mage_front_view/right_foot
+  rotate: true
+  xy: 473, 202
+  size: 20, 18
+  orig: 20, 18
+  offset: 0, 0
+  index: -1
+female_mage_front_view/right_forearm
+  rotate: false
+  xy: 410, 102
+  size: 28, 42
+  orig: 30, 42
+  offset: 2, 0
+  index: -1
+female_mage_front_view/right_leg
+  rotate: false
+  xy: 464, 126
+  size: 18, 27
+  orig: 18, 27
+  offset: 0, 0
+  index: -1
+female_mage_front_view/right_shoulder
+  rotate: false
+  xy: 378, 102
+  size: 25, 22
+  orig: 25, 22
+  offset: 0, 0
+  index: -1
+female_mage_side_view/back_hair
+  rotate: true
+  xy: 214, 32
+  size: 98, 97
+  orig: 110, 97
+  offset: 12, 0
+  index: -1
+female_mage_side_view/blink
+  rotate: false
+  xy: 214, 2
+  size: 54, 28
+  orig: 54, 28
+  offset: 0, 0
+  index: -1
+female_mage_side_view/body
+  rotate: false
+  xy: 234, 160
+  size: 70, 91
+  orig: 70, 91
+  offset: 0, 0
+  index: -1
+female_mage_side_view/head
+  rotate: false
+  xy: 2, 7
+  size: 119, 117
+  orig: 119, 117
+  offset: 0, 0
+  index: -1
+female_mage_side_view/knot
+  rotate: false
+  xy: 476, 106
+  size: 18, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+female_mage_side_view/left_arm
+  rotate: false
+  xy: 448, 36
+  size: 21, 25
+  orig: 21, 25
+  offset: 0, 0
+  index: -1
+female_mage_side_view/left_foot
+  rotate: true
+  xy: 291, 134
+  size: 24, 19
+  orig: 26, 22
+  offset: 0, 3
+  index: -1
+female_mage_side_view/left_forearm
+  rotate: true
+  xy: 313, 18
+  size: 77, 54
+  orig: 79, 56
+  offset: 2, 2
+  index: -1
+female_mage_side_view/left_leg
+  rotate: false
+  xy: 459, 7
+  size: 18, 27
+  orig: 18, 27
+  offset: 0, 0
+  index: -1
+female_mage_side_view/left_shoulder
+  rotate: false
+  xy: 474, 70
+  size: 16, 21
+  orig: 16, 21
+  offset: 0, 0
+  index: -1
+female_mage_side_view/left_thigh
+  rotate: false
+  xy: 453, 65
+  size: 19, 26
+  orig: 19, 26
+  offset: 0, 0
+  index: -1
+female_mage_side_view/right_arm
+  rotate: false
+  xy: 420, 63
+  size: 31, 37
+  orig: 34, 39
+  offset: 0, 2
+  index: -1
+female_mage_side_view/right_foot
+  rotate: true
+  xy: 469, 169
+  size: 24, 18
+  orig: 28, 21
+  offset: 4, 2
+  index: -1
+female_mage_side_view/right_forearm
+  rotate: false
+  xy: 410, 146
+  size: 37, 37
+  orig: 37, 43
+  offset: 0, 0
+  index: -1
+female_mage_side_view/right_leg
+  rotate: false
+  xy: 471, 39
+  size: 16, 24
+  orig: 16, 24
+  offset: 0, 0
+  index: -1
+female_mage_side_view/right_shoulder
+  rotate: false
+  xy: 270, 5
+  size: 38, 25
+  orig: 38, 25
+  offset: 0, 0
+  index: -1
+female_mage_side_view/right_thigh
+  rotate: true
+  xy: 425, 10
+  size: 19, 32
+  orig: 19, 32
+  offset: 0, 0
+  index: -1

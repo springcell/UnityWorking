@@ -6910,7 +6910,7 @@ GameObject:
   - component: {fileID: 3644605803546957413}
   - component: {fileID: 3644605803546957411}
   - component: {fileID: 3644605803546957412}
-  m_Layer: 13
+  m_Layer: 4
   m_Name: RipWaterParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6929,6 +6929,7 @@ GameObject:
   - component: {fileID: 3644605803938174612}
   - component: {fileID: 3644605803938174613}
   - component: {fileID: 3644605803938174614}
+  - component: {fileID: 3644605803938174616}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -7015,21 +7016,21 @@ Transform:
   m_Father: {fileID: 4640461244185763128}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3644605804269432704
+--- !u!114 &3644605803938174616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5933121990613348214}
+  m_GameObject: {fileID: 3644605803938174600}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d98d1d3727c7e5445a91519d067d96f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatSpeed: 1
-  floatAmplitude: 1
-  perlinScale: 0.1
+  moveSpeed: 0.15
+  frequency: 4
+  randomRange: 0.2
 --- !u!33 &3653081567495623770
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8925,7 +8926,6 @@ GameObject:
   - component: {fileID: 4221500166196881237}
   - component: {fileID: 3653081567495623770}
   - component: {fileID: 7582899154595738833}
-  - component: {fileID: 3644605804269432704}
   - component: {fileID: 7582899154595738834}
   m_Layer: 0
   m_Name: water03
@@ -9471,8 +9471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9e56dfe0e0be048a47536d8b137ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterLayer: 13
-  Downsampling: 1
+  waterLayer: 4
+  Downsampling: 4
 --- !u!1 &7590744314533909731
 GameObject:
   m_ObjectHideFlags: 0

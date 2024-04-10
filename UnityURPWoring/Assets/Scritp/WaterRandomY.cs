@@ -1,28 +1,33 @@
 using UnityEngine;
-//[ExecuteInEditMode]
-public class WaterRandomY : MonoBehaviour
-{    
-    public float floatSpeed = 1f; // 浮动速度
-    public float floatAmplitude = 1f; // 浮动振幅
-    public float perlinScale = 0.1f; // Perlin噪声的缩放值
 
-    private Vector3 originalPosition; // 初始位置
+public class WaterRandomY : MonoBehaviour
+{
+    public float moveSpeed = 0.15f; // 移动速度
+    public float frequency = 4f; // 频率
+    public float randomRange = 0.2f; // 随机扰动范围
+
+    private float startTime;
+    private float initialY;
 
     void Start()
     {
-        // 保存初始位置
-        originalPosition = transform.position;
+        startTime = Time.time;
+        initialY = transform.position.y; // 记录初始Y轴位置
     }
 
     void Update()
     {
-        // 计算基于Perlin噪声的浮动偏移量
-        float yOffset = Mathf.PerlinNoise(Time.time * floatSpeed, 0) * 0.5f + 0.5f; // 调整Perlin噪声值在[0.5, 1]之间
+        // 计算Sin波形的基础偏移量
+        float baseYOffset = Mathf.Sin(frequency * (Time.time - startTime));
 
-        // 应用浮动偏移量到物体的Y坐标，并乘以振幅
-        yOffset *= floatAmplitude;
+        // 添加随机扰动
+        float randomOffset = Random.Range(-randomRange, randomRange);
+        float yOffset = initialY + baseYOffset + randomOffset;
 
-        // 应用Perlin噪声浮动到物体的当前Y坐标
-        transform.position = new Vector3(originalPosition.x, originalPosition.y + yOffset, originalPosition.z);
+        // 计算物体的新位置
+        Vector3 newPosition = new Vector3(transform.position.x, yOffset, transform.position.z);
+
+        // 使用Lerp平滑地移动物体
+        transform.position = Vector3.Lerp(transform.position, newPosition, moveSpeed * Time.deltaTime);
     }
 }

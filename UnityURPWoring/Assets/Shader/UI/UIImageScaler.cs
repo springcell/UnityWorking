@@ -14,6 +14,7 @@ public class UIImageScaler : MonoBehaviour
 
         // 获取RectTransform组件
         rectTransform = GetComponent<RectTransform>();
+
     }
 
     void Update()
