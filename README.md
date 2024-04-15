@@ -19,3 +19,7 @@ URP　UI勾边及阴影<br>
 
  <img src="https://github.com/springcell/UnityWorking/blob/main/UnityURPWoring/Assets/Scenes/2dLightSpine/screenshot-20240410-153043.png" width = "30%" alt="TerrainToObjConverter" align=center />
 
+<h4>冰面效果：</h4> <br>
+
+ <img src="https://github.com/springcell/UnityWorking/blob/main/UnityURPWoring/Assets/Scenes/ICE/screenshot-20240415-132309.png" width = "30%" alt="TerrainToObjConverter" align=center /><br>
+ <img src="https://github.com/springcell/UnityWorking/blob/main/UnityURPWoring/Assets/Scenes/ICE/screenshot-20240415-132508.png" width = "30%" alt="TerrainToObjConverter" align=center /><br>
