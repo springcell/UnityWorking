@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: URP_ICE
+  m_Shader: {fileID: 4800000, guid: ec5d65c4d0bd3174d86401683e00af7c, type: 3}
+  m_ValidKeywords:
+  - _CRACK
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: 106fb5a52cfb6e0469946af3629e9f24, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 0b4048e6cd7ba5543bfa82334a097b82, type: 3}
+        m_Scale: {x: 3, y: 3}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 2800000, guid: 67c8c367bae96714daac6b4c23d3da53, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Bump1Scale: 1.81
+    - _Crack: 1
+    - _Gloss_var: 0.074
+    - _IceIn: 0.491
+    - _Iterations: 20
+    - _OffsetScale: -7.66
+    - _distanceDepth: 1.95
+    - _metallic: 0.156
+    - _roughness: 0.549
+    - _specular: 0.208
+    m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _IceInColor: {r: 0, g: 0.55999994, b: 1, a: 1}
+  m_BuildTextureStacks: []
