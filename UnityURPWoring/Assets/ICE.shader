@@ -1,4 +1,4 @@
-Shader "Babu/FX/ICE"
+Shader "Babu/FX/ICE2"
 {
     Properties
     {
@@ -9,13 +9,13 @@ Shader "Babu/FX/ICE"
         _specular("specular",Range(0,1)) =0.6
         _ParallaxMap("Parallax map", 2D) = "white" {}
         _BaseColor("BaseColor",Color)=(1,1,1,1)
-        _Iterations("Iterations", Range(1,20)) = 5
+        //_Iterations("Iterations", Range(1,20)) = 5
         _OffsetScale("Offset scale", float) = 0
 
          [Toggle(_CRACK)] _Crack("Ice_Crack", Float) = 0
 
          _IceIn("IceIn",Range(0,1)) =0.3
-         _IceInColor("IceInColor",Color)=(1,1,1,1)
+         //_IceInColor("IceInColor",Color)=(1,1,1,1)
          _distanceDepth("distanceDepth",Range(0,10)) =2.25
          _Alpha("Alpha",Range(0,1)) =2.25
     }
@@ -35,14 +35,13 @@ Shader "Babu/FX/ICE"
         #pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
         #pragma multi_compile _ _SHADOWS_SOFT
         #pragma multi_compile _ LIGHTMAP_SHADOW_MIXING
-        #pragma shader_feature_local _UIPOSAITION
          #pragma multi_compile_fog
 
         CBUFFER_START(UnityPerMaterial)
         float4 _BaseColor;
-        float4 _IceInColor;
+        //float4 _IceInColor;
         float _OffsetScale;
-        float _Iterations;
+        //float _Iterations;
         float _Bump1Scale;
         float _roughness;
         float _specular;
@@ -89,6 +88,11 @@ Shader "Babu/FX/ICE"
 
         Pass
         {
+             Name "Pass"
+            Tags
+            {
+            "LightMode" = "UniversalForward"
+            }
 
            HLSLPROGRAM
            #pragma vertex vert
@@ -202,18 +206,50 @@ Shader "Babu/FX/ICE"
              float Shadow = mainLight.shadowAttenuation;
              float3 viewDir = i.viewDir;
              baseTex.rgb *= _BaseColor.rgb * Shadow;
+             float4 parallax =  SAMPLE_TEXTURE2D(_ParallaxMap, sampler_ParallaxMap,i.uv);
 
 #if _CRACK
-            float4 parallax = 0;
+            //float4 parallax = 0;
+            //_OffsetScale *=0.01;
+            //for (int j = 0; j < _Iterations; j ++) {
+            //    float ratio = (float) j / _Iterations;
+            //    parallax +=  SAMPLE_TEXTURE2D(_ParallaxMap, sampler_ParallaxMap,i.uv + lerp(0, _OffsetScale, ratio) * normalize(i.viewDirTangent.xy)) * lerp(1, 0, ratio);
+            //}
+            //parallax /= _Iterations;
+            //baseTex += parallax * 2;
+           
             _OffsetScale *=0.01;
-            for (int j = 0; j < _Iterations; j ++) {
-                float ratio = (float) j / _Iterations;
-                parallax +=  SAMPLE_TEXTURE2D(_ParallaxMap, sampler_ParallaxMap,i.uv + lerp(0, _OffsetScale, ratio) * normalize(i.viewDirTangent.xy)) * lerp(1, 0, ratio);
-            }
-            parallax /= _Iterations;
-            baseTex += parallax * 2;
-#endif
+            int Iterations = 6;
+            //01
+            int j = 1;
+            float ratio = (float) j / Iterations;
+            parallax +=  SAMPLE_TEXTURE2D(_ParallaxMap, sampler_ParallaxMap,i.uv + lerp(0, _OffsetScale, ratio) * normalize(i.viewDirTangent.xy)) * lerp(1, 0, ratio);
+            //02
+             j = 2;
+            ratio = (float) j / Iterations;
+            parallax +=  SAMPLE_TEXTURE2D(_ParallaxMap, sampler_ParallaxMap,i.uv + lerp(0, _OffsetScale, ratio) * normalize(i.viewDirTangent.xy)) * lerp(1, 0, ratio);
+            //03
+             j = 3;
+            ratio = (float) j / Iterations;
+            parallax +=  SAMPLE_TEXTURE2D(_ParallaxMap, sampler_ParallaxMap,i.uv + lerp(0, _OffsetScale, ratio) * normalize(i.viewDirTangent.xy)) * lerp(1, 0, ratio);
+            //04
+             j = 4;
+            ratio = (float) j / Iterations;
+            parallax +=  SAMPLE_TEXTURE2D(_ParallaxMap, sampler_ParallaxMap,i.uv + lerp(0, _OffsetScale, ratio) * normalize(i.viewDirTangent.xy)) * lerp(1, 0, ratio);
+            //05
+             j = 5;
+            ratio = (float) j / Iterations;
+            parallax +=  SAMPLE_TEXTURE2D(_ParallaxMap, sampler_ParallaxMap,i.uv + lerp(0, _OffsetScale, ratio) * normalize(i.viewDirTangent.xy)) * lerp(1, 0, ratio);
+            //06
+             j = 6;
+            ratio = (float) j / Iterations;
+            parallax +=  SAMPLE_TEXTURE2D(_ParallaxMap, sampler_ParallaxMap,i.uv + lerp(0, _OffsetScale, ratio) * normalize(i.viewDirTangent.xy)) * lerp(1, 0, ratio);
+            
+            parallax /= Iterations;
+            
 
+#endif
+    baseTex += parallax ;
               half3 normalmap= UnpackNormalScale(BumpMap, _Bump1Scale);
               float3 NormalFix = normalize(mul(normalmap, i.tangentMatrix));
 
@@ -221,15 +257,15 @@ Shader "Babu/FX/ICE"
 
             //  baseTex.rgb *= iblDiffuse.rgb;
               float4 screenPosNorm = i.screenPos.xyzw / i.screenPos.w;
-              float screenDepth = LinearEyeDepth(SampleSceneDepth(screenPosNorm.xy),_ZBufferParams);
-              float DepthMask = abs( ( screenDepth - LinearEyeDepth( screenPosNorm.z,_ZBufferParams ) ) /(_distanceDepth * 20));
+              float screenDepth = LinearEyeDepth(SampleSceneDepth(screenPosNorm.xy + NormalFix.xz  * _IceIn),_ZBufferParams);
+              float DepthMask = abs( ( screenDepth - LinearEyeDepth( screenPosNorm.z,_ZBufferParams ) ) /(_distanceDepth *_WorldSpaceCameraPos.z *0.1));
 
               DepthMask = saturate(DepthMask);
 
-              half3 ScenesColor = SampleSceneColor(screenPosNorm.xy + NormalFix.xz *0.5) ; 
+              half3 ScenesColor = SampleSceneColor(screenPosNorm.xy + NormalFix.xz  * _IceIn) ; 
 
               // IBL
-              float3 lightColorIBLcolor = lerp(_GlossyEnvironmentColor.rgb , lightColor,0.5);
+              float3 lightColorIBLcolor = lerp(_GlossyEnvironmentColor.rgb * baseTex.rgb , lightColor,0.5);
 
                // reflection 
               float3 refl = iblSpecular(viewDir,NormalFix) * lightColorIBLcolor;
@@ -239,16 +275,17 @@ Shader "Babu/FX/ICE"
             float3 SurfaceLightColor = LightDirectSurface(baseTex.rgb,NormalFix,viewDir,lightDir,lightColorIBLcolor);
 
 
-              float4 FianlColor = float4(lerp(ScenesColor.rgb,SurfaceLightColor.rgb,DepthMask),1) * Shadow;
+              float4 FianlColor = float4(lerp(ScenesColor.rgb,SurfaceLightColor.rgb,DepthMask),1) ;
              
             //  FianlColor.rgb = lightColor;
               FianlColor.rgb +=refl;
              
 
               float Alpha =saturate(DepthMask + _Alpha);
-               FianlColor.rgb *= min(DepthMask +_IceIn * _IceInColor.rgb,1) ;
-            //return float4(Shadow,Shadow,Shadow,1);
+              // FianlColor.rgb *= min(DepthMask +_IceIn * _IceInColor.rgb,1) ;
             FianlColor.rgb = MixFog(FianlColor.rgb, i.fogFactor.x);
+
+            // return float4(Shadow,Shadow,Shadow,1);
              return float4(FianlColor.rgb,Alpha);
            }
 
