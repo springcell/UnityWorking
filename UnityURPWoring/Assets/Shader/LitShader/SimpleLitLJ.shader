@@ -1,4 +1,4 @@
-
+// by lujun 16519579@qq,com
 Shader "Babu/BabuSimpleLit"
 {
     // Keep properties of StandardSpecular shader for upgrade reasons.

@@ -1,3 +1,5 @@
+// by lujun 16519579@qq,com
+
 Shader "Babu/ScreenSpace/Decal"
 {
     Properties

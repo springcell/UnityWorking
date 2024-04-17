@@ -39,7 +39,7 @@ Material:
     - _Bump1Scale: 1.58
     - _Crack: 1
     - _Gloss_var: 0.074
-    - _IceIn: 0.663
+    - _IceIn: 0.407
     - _Iterations: 16.98
     - _OffsetScale: -3.05
     - _distanceDepth: 1.11

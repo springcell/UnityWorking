@@ -1,3 +1,4 @@
+// by lujun 16519579@qq,com
 Shader "Babu/FX/2dLight"
 {
     Properties

@@ -1,3 +1,5 @@
+// by lujun 16519579@qq,com
+
 Shader "Spine/BaBu/2DSpriteShadow"
 {
     Properties
