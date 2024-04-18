@@ -1,13 +1,14 @@
 // by lujun 16519579@qq,com
-Shader "Babu/FX/ICE2"
+Shader "Babu/FX/ICE"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
         _BumpMap ("BumpMap", 2D) = "bump" {}
+        _BRDF ("BRDF", 2D) = "black" {}
         _Bump1Scale ("BumpScale", float) = 0
-        _roughness("roughness",Range(0,1)) =0.6
-        _specular("specular",Range(0,1)) =0.6
+        _Roughness("roughness",Range(0,1)) =0.6
+        _Metallic("Metallic",Range(0,1)) =0.6
         _ParallaxMap("Parallax map", 2D) = "white" {}
         _BaseColor("BaseColor",Color)=(1,1,1,1)
         //_Iterations("Iterations", Range(1,20)) = 5
@@ -22,9 +23,10 @@ Shader "Babu/FX/ICE2"
     }
     SubShader
     {
+
         Tags { "RenderType"="Opaque"  "Queue"="Transparent" }
         Blend SrcAlpha OneMinusSrcAlpha
-        LOD 100
+ 
         HLSLINCLUDE
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
@@ -36,7 +38,7 @@ Shader "Babu/FX/ICE2"
         #pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
         #pragma multi_compile _ _SHADOWS_SOFT
         #pragma multi_compile _ LIGHTMAP_SHADOW_MIXING
-         #pragma multi_compile_fog
+        #pragma multi_compile_fog
 
         CBUFFER_START(UnityPerMaterial)
         float4 _BaseColor;
@@ -44,8 +46,8 @@ Shader "Babu/FX/ICE2"
         float _OffsetScale;
         //float _Iterations;
         float _Bump1Scale;
-        float _roughness;
-        float _specular;
+        float _Roughness;
+        float _Metallic;
         float _Alpha;
         float _distanceDepth;
         float _IceIn;
@@ -58,6 +60,8 @@ Shader "Babu/FX/ICE2"
         SAMPLER(sampler_ParallaxMap);
         TEXTURE2D(_BumpMap);
         SAMPLER(sampler_BumpMap);
+        TEXTURE2D(_BRDF);
+        SAMPLER(sampler_BRDF);
 
         struct VertexInput
         {
@@ -81,7 +85,7 @@ Shader "Babu/FX/ICE2"
             float3x3 tangentMatrix:TEXCOORD7;
             DECLARE_LIGHTMAP_OR_SH(lightmapUV, vertexSH, 10);
              float4 screenPos : TEXCOORD11;
-             half2 fogFactor : TEXCOORD12;
+             float fogFactor : TEXCOORD15;
 
         };
 
@@ -98,10 +102,10 @@ Shader "Babu/FX/ICE2"
            HLSLPROGRAM
            #pragma vertex vert
            #pragma fragment frag
-
+         
            float3 iblSpecular(float3 viewDir,float3 normal)
             {
-                float perceptualRoughness = max(_specular, 0.08);
+                float perceptualRoughness =_Roughness*(1.7-0.7*_Roughness);
                 float mip_roughness = perceptualRoughness * (1.7 - 0.7 * perceptualRoughness);
                 float3 reflectVec = reflect(-viewDir,normal);
                 float mip = mip_roughness * UNITY_SPECCUBE_LOD_STEPS;
@@ -133,42 +137,78 @@ Shader "Babu/FX/ICE2"
 
            // }
 
-           float G1V ( float dotNV, float k ) {
-	            return 1.0 / (dotNV*(1.0 - k) + k);
-            }
-           float3 LightDirectSurface(float3 diffuseColor,float3 normal,float3 viewDir,float3 lightDir, float3 lightColor )
-            {
-                float roughness = max(_roughness,0.04);
-                float F0 = 0.2;
-                float3 N = normal;
-                float3 H = SafeNormalize(lightDir + viewDir);
-                float3 V = viewDir;
-                float3 L = lightDir;
-    	        float alpha = roughness*roughness;
+           //float G1V ( float dotNV, float k ) {
+	          //  return 1.0 / (dotNV*(1.0 - k) + k);
+           // }
+           //float3 LightDirectSurface(float3 diffuseColor,float3 normal,float3 viewDir,float3 lightDir, float3 lightColor)
+           // {
+           //     float roughness = max(_roughness,0.04);
+           //     float F0 = 0.1;
+           //      F0=lerp(F0,diffuseColor,_specular);
+
+           //     float3 N = normal;
+           //     float3 H = SafeNormalize(lightDir + viewDir);
+           //     float3 V = viewDir;
+           //     float3 L = lightDir;
+    	      //  float alpha = roughness*roughness;
 
 
-	            float dotNL = clamp (dot (N, L), 0.0, 1.0);
-	            float dotNV = clamp (dot (N, V), 0.0, 1.0);
-	            float dotNH = clamp (dot (N, H), 0.0, 1.0);
-	            float dotLH = clamp (dot (L, H), 0.0, 1.0);
+	          //  float dotNL = clamp (dot (N, L), 0.0, 1.0);
+	          //  float dotNV = clamp (dot (N, V), 0.0, 1.0);
+	          //  float dotNH = clamp (dot (N, H), 0.0, 1.0);
+	          //  float dotLH = clamp (dot (L, H), 0.0, 1.0);
 
-                float alphaSqr = alpha*alpha;
-	            float denom = dotNH * dotNH *(alphaSqr - 1.0) + 1.0;
-	            float D = alphaSqr / (PI * denom * denom);
+           //     float alphaSqr = alpha*alpha;
+	          //  float denom = dotNH * dotNH *(alphaSqr - 1.0) + 1.0;
+	          //  float D = alphaSqr / (PI * denom * denom);
 
-                float k = alpha / 2.0;
-	            float vis = G1V (dotNL, k) * G1V (dotNV, k);
+           //     float k = alpha / 2.0;
+	          //  float vis = G1V (dotNL, k) * G1V (dotNV, k);
 
-                float dotLH5 = pow (1.0 - dotLH, 5.0);
-	            float F = F0 + (1.0 - F0)*(dotLH5);
+           //     float dotLH5 = pow (1.0 - dotLH, 5.0);
+	          //  float F = F0 + (1.0 - F0)*(dotLH5);
 
-                 diffuseColor *= D * F * vis * lightColor;
+           //      diffuseColor =  diffuseColor * D * F * vis;
                 
 
-                return diffuseColor;
+           //     return diffuseColor * lightColor;
 
+           // }
+                float3 FresnelSchlick(float cosTheta,float3 F0)
+            {
+                return F0+(1.0-F0)*pow(1.0-cosTheta,5.0);
+            }
+             float DistributionGGX(float3 N,float3 H,float roughness)
+            {
+                float a2=roughness*roughness;
+                a2=a2*a2;
+                float NdotH=saturate(dot(N,H));
+                float NdotH2=NdotH*NdotH;
+
+                float denom=(NdotH2*(a2-1.0)+1.0);
+                denom=PI*denom*denom;
+                return a2/denom;
             }
 
+            float GeometrySchlickGGX(float NdotV,float roughness)
+            {
+
+                float r=roughness+1.0;
+                float k=r*r/8.0;
+
+                float denom=NdotV*(1.0-k)+k;
+                return NdotV/denom;
+            }
+
+            float GeometrySmith(float3 N,float3 V,float3 L,float roughness)
+            {
+                float NdotV=saturate(dot(N,V));
+                float NdotL=saturate(dot(N,L));
+                float ggx1=GeometrySchlickGGX(NdotV,roughness);
+                float ggx2=GeometrySchlickGGX(NdotL,roughness);
+
+                return ggx1*ggx2;
+            }
 
 
            VertexOutput vert(VertexInput i)
@@ -183,7 +223,7 @@ Shader "Babu/FX/ICE2"
              o.bitangent = normalize(cross(o.normal, o.tangent) * i.tangent.w);
              o.tangentMatrix = float3x3(o.tangent,o.bitangent,o.normal);
 
-             o.viewDir = normalize(_WorldSpaceCameraPos.xyz - o.worldPos.xyz);
+             o.viewDir =normalize(_WorldSpaceCameraPos.xyz -  o.worldPos.xyz);
              o.viewDirTangent = mul(o.tangentMatrix, o.viewDir);
 
             o.screenPos = ComputeScreenPos(o.pos);
@@ -191,7 +231,12 @@ Shader "Babu/FX/ICE2"
             OUTPUT_LIGHTMAP_UV(i.uv1, unity_LightmapST, o.lightmapUV);
             OUTPUT_SH(i.normal.xyz, o.vertexSH);
 
-            o.fogFactor = float2(ComputeFogFactor(o.pos.z), 1);
+             //#if defined(_FOG_FRAGMENT)
+             //        half fogFactor = 0;
+             //#else
+             //        half fogFactor = ComputeFogFactor(o.pos.z);
+             //#endif
+            o.fogFactor = ComputeFogFactor(o.pos.z);
              return o;
            }
 
@@ -250,7 +295,7 @@ Shader "Babu/FX/ICE2"
             
 
 #endif
-    baseTex += parallax ;
+              baseTex += parallax ;
               half3 normalmap= UnpackNormalScale(BumpMap, _Bump1Scale);
               float3 NormalFix = normalize(mul(normalmap, i.tangentMatrix));
 
@@ -266,28 +311,64 @@ Shader "Babu/FX/ICE2"
               half3 ScenesColor = SampleSceneColor(screenPosNorm.xy + NormalFix.xz  * _IceIn) ; 
 
               // IBL
-              float3 lightColorIBLcolor = lerp(_GlossyEnvironmentColor.rgb * baseTex.rgb , lightColor,0.5);
+              float3 lightColorIBLcolor = lerp(_GlossyEnvironmentColor.r, lightColor,0.5);
 
                // reflection 
-              float3 refl = iblSpecular(viewDir,NormalFix) * lightColorIBLcolor;
+              float3 refl = iblSpecular(viewDir,NormalFix);
+            // PBR ============================================================
+             float3 halfDir=normalize(lightDir+viewDir);
+             half3 albedo=lightColor*baseTex.rgb * _BaseColor.rgb;
+             float3 F0=float3(0.01,0.01,0.01);
 
-            // specular
+             float3 metallic=(float3)_Metallic;
+             F0=lerp(F0,albedo,metallic);
 
-            float3 SurfaceLightColor = LightDirectSurface(baseTex.rgb,NormalFix,viewDir,lightDir,lightColorIBLcolor);
+             float3 Lo=float3(0,0,0);
 
+             float roughness=1- _Roughness;
 
-              float4 FianlColor = float4(lerp(ScenesColor.rgb,SurfaceLightColor.rgb,DepthMask),1) ;
+            float NDF=DistributionGGX(NormalFix,halfDir,roughness);
+            float G=GeometrySmith(NormalFix,viewDir,lightDir,roughness);
+            float3 F=FresnelSchlick(clamp(dot(halfDir,viewDir),0,1),F0);
+                           
+            float3 nom=NDF*G*F;
+            float3 denom=4*max(dot(NormalFix,viewDir),0)*saturate(dot(NormalFix,lightDir));
+            float3 specular=nom/max(denom,0.001);//max±‹√‚denomŒ™¡„
+                            float3 Ks=F;
+            float3 Kd=1-Ks;
+            Kd*=1.0-metallic;
+            float NdotL=max(dot(NormalFix,lightDir),0.0);
+            Lo=(Kd*albedo+specular)*NdotL;//
+
+            half3 irradiance=iblDiffuse;
+
+            half3 ambient=_GlossyEnvironmentColor.rgb;
+            half3 diffuse=max(half3(0,0,0),ambient+irradiance)*albedo;
+
+            half3 preColor=refl;
+
+            half NdotV=saturate(dot(NormalFix,viewDir));
+            half2 brdf=SAMPLE_TEXTURE2D(_BRDF,sampler_BRDF,half2(lerp(0, 0.99,NdotV),lerp(0, 0.99,_Roughness))).rg +0.2;
+
+            specular=preColor *(F*brdf.x+brdf.y);
+
+            Lo+=Kd*diffuse+specular;
+
+            //===============================================================
+           // float3 SurfaceLightColor = LightDirectSurface(diffuseColor.rgb,NormalFix,viewDir,lightDir,lightColorIBLcolor);
+
+            float4 FianlColor =0;
+            FianlColor += float4(lerp(ScenesColor.rgb,Lo.rgb,DepthMask),1) ;
              
-            //  FianlColor.rgb = lightColor;
-              FianlColor.rgb +=refl;
-             
+          // FianlColor.rgb = 0;
+           float Alpha =saturate(DepthMask + _Alpha);
 
-              float Alpha =saturate(DepthMask + _Alpha);
-              // FianlColor.rgb *= min(DepthMask +_IceIn * _IceInColor.rgb,1) ;
-            FianlColor.rgb = MixFog(FianlColor.rgb, i.fogFactor.x);
+           float FogZ = i.pos.z * i.pos.w;
+           float fogFactor = ComputeFogFactor(FogZ);
 
-            // return float4(Shadow,Shadow,Shadow,1);
-             return float4(FianlColor.rgb,Alpha);
+            float3 FianlColor2 = MixFog(FianlColor.rgb, fogFactor);
+
+             return float4(FianlColor2.rgb,Alpha);
            }
 
            ENDHLSL
