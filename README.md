@@ -27,8 +27,9 @@ URP　UI勾边及阴影<br>
 <h4>冰面效果：</h4> <br>
 
  <img src="https://github.com/springcell/UnityWorking/blob/main/UnityURPWoring/Assets/Scenes/ICE/screenshot-20240416-180438.png" width = "30%" alt="TerrainToObjConverter" align=center /><br>
-<h4>地形的材质混合方案：</h4> <br>
 
+ 
+<h4>地形的材质混合方案：</h4>
 <h4>利用RGBA混合材质来达到地形的灵活shader定制</h4> <br>
  <img src="https://github.com/springcell/UnityWorking/blob/main/UnityURPWoring/Assets/Scenes/TerrainBlend/screenshot-20240422-101253.png" width = "30%" alt="TerrainToObjConverter" align=center /><br>
  <img src="https://github.com/springcell/UnityWorking/blob/main/UnityURPWoring/Assets/Scenes/TerrainBlend/screenshot-20240422-100502.png" width = "30%" alt="TerrainToObjConverter" align=center /><br>
