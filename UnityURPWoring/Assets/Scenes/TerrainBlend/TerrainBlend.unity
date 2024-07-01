@@ -123,30 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!21 &232144501
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Custom/TerrainBlend
-  m_Shader: {fileID: 4800000, guid: 43ef582b2d3782c42946b3b07610d68d, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1 &978032689
 GameObject:
   m_ObjectHideFlags: 0
@@ -5067,8 +5043,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076692443}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 752, y: -162, z: -1049}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 359, y: -162, z: -1480}
+  m_LocalScale: {x: 0.41959932, y: 0.41959932, z: 0.41959932}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -5128,7 +5104,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 232144501}
+  - {fileID: 1986827771}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5166,8 +5142,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736148023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 768, y: -0.029999971, z: -992}
-  m_LocalScale: {x: 1763.7062, y: 1763.7062, z: 1763.7062}
+  m_LocalPosition: {x: 375, y: -0.029999971, z: -1423}
+  m_LocalScale: {x: 740.0499, y: 740.0499, z: 740.0499}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -5282,8 +5258,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738919211}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 683, y: -220, z: -834}
-  m_LocalScale: {x: 408.71857, y: 408.71857, z: 408.71857}
+  m_LocalPosition: {x: 290, y: -220, z: -1265}
+  m_LocalScale: {x: 171.49805, y: 171.49805, z: 171.49805}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -5373,7 +5349,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 2625.37
+  far clip plane: 3625.14
   field of view: 50
   orthographic: 0
   orthographic size: 5
@@ -5400,7 +5376,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784963895}
   m_LocalRotation: {x: -0.41485453, y: 0.35342428, z: -0.17900732, w: -0.81911135}
-  m_LocalPosition: {x: 1349.9664, y: 1141.7083, z: -1756.1523}
+  m_LocalPosition: {x: 2056, y: 1739.09, z: -2735}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5497,8 +5473,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792424903}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 363, y: -121, z: -2125}
-  m_LocalScale: {x: 213.27264, y: 213.27264, z: 213.27264}
+  m_LocalPosition: {x: 798, y: -121, z: -2189}
+  m_LocalScale: {x: 89.48906, y: 89.48906, z: 89.48906}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -5595,10 +5571,34 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815903522}
   m_LocalRotation: {x: 0.72167903, y: -0, z: -0, w: 0.6922278}
-  m_LocalPosition: {x: 212.59998, y: -148, z: -2089.3}
-  m_LocalScale: {x: 1342.2203, y: 1342.2203, z: 1342.2203}
+  m_LocalPosition: {x: 647.6, y: -148, z: -2153.3}
+  m_LocalScale: {x: 563.19476, y: 563.19476, z: 563.19476}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 92.38699, y: 0, z: 0}
+--- !u!21 &1986827771
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom/TerrainBlend
+  m_Shader: {fileID: 4800000, guid: 43ef582b2d3782c42946b3b07610d68d, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []

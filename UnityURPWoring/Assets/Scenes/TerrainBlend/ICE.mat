@@ -22,7 +22,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: ICE
   m_Shader: {fileID: 4800000, guid: 5b3ae0e34b3d3b248924e3984883ffcf, type: 3}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _CRACK
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -106,7 +107,7 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Crack: 0
+    - _Crack: 1
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -121,7 +122,7 @@ Material:
     - _MaskChannel: 0
     - _Metallic: 0.641
     - _OcclusionStrength: 1
-    - _OffsetScale: 0
+    - _OffsetScale: -7.27
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -133,7 +134,7 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _distanceDepth: 3.43
+    - _distanceDepth: 0.85
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
